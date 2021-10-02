@@ -31,7 +31,6 @@ describe('user controller', () => {
         expect(result).toBe(undefined);
     })
 
-
     test('get user', () => {
         const getUserMock: users[] = [{
             id: 1,
@@ -56,7 +55,6 @@ describe('user controller', () => {
         console.log(result)
         expect(result).toBe(getUserMock);
         expect(result).not.toBe('erorr');
-
     })
 
     test('utils', () => {
