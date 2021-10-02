@@ -1,30 +1,25 @@
+import { use } from "chai";
 import { IncomingMessage, ServerResponse } from "http";
+import { json } from "stream/consumers";
 import { users } from '../models/users'
-import {registerUser, getAllUser} from '../services/userService'
-import userService from '../../repository/userRepo'
+import { registerUser, getAllUser } from '../services/userService'
 
-export default class User {
-    // private _data=[];
-    // constructor(req: IncomingMessage, res: ServerResponse) {
-    //    //we need to parse header herer 
-
-    // }
+export class User {
     constructor() {
-     
-    }
+      }
 
-    public registerUser = (query: users) => {
+    public addUser = (query: users) => {
         try {
-           return registerUser;
+            return registerUser(query);
         }
         catch (e) {
             return `api for User registeration`;
         }
     }
 
-    public getAllUser() {
+    public getUsers() {
         try {
-            return getAllUser;
+            return getAllUser();
         }
         catch (e) {
             return `${e} |   api for get all users`;

@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { utils } from "../coustomModule/controller/utils";
-import User from "../coustomModule/controller/user";
+import {User} from "../coustomModule/controller/user";
 export class apiRouter {
 
     public static mapRouts(req: IncomingMessage, res: ServerResponse) {
@@ -16,12 +16,6 @@ export class apiRouter {
             result = `<h4>${utils.printleangth("Arpit")} || revrse: ${new utils().printReverse("Arpit")}</h4>`;
         }
         else if (url === '/registeruser' && method === typePost) {
-            
-           var userInit = new User();
-            //userInit.registerUser();
-            //res.statusCode = 404;
-            //res.statusMessage = notFound;
-            // result = notFound;
         }
 
         res.end(`${result}`);
