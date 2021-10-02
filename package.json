@@ -1,0 +1,30 @@
+{
+  "name": "typescript-api_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^16.10.2",
+    "axios": "^0.22.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "@types/mocha": "^9.0.0",
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "jest": "^27.2.4",
+    "mocha": "^9.1.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}

@@ -1,0 +1,86 @@
+
+
+1. install node.js first.
+2. then check version with node -version in you cmd.
+3. npm i -g typescript
+- g means globlally.
+check with :- tsc -version
+4. npm i -g ts-node -- is for executing typescript and node js program.
+ts-node -v
+5. npm i -g nodemon -- for autometic server startup.
+nodemon -v
+
+
+for scope we need to run this    
+set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+then check you scope 
+Get-ExecutionPolicy
+----------
+we need first 
+1. package.json using:-  npm init --yes
+2. tsconfig:- tsc --init 
+
+3. npm i @types/node
+
+-----
+in tsconfig 
+"target":  from es5 to "ES2017" means ES6
+
+how to run ts program on node
+1. a will convert ts file to js then run b command.
+a.tsc app.ts
+b.node app.js 
+2. ts-node app.ts
+3. nodemon  app.ts (server)
+4. npm start for this you need to modify package.json > scripts >start: nodemon server.ts 
+so when you enter the command npm start autometic server.ts call . 
+
+
+----- how to create server in node
+
+---testing
+1. npm i --save-dev @types/mocha or @types/jest
+2. install chai:- npm i --save-dev @types/chai
+3. npm i --save-dev chai
+4. npm i --save-dev mocha
+dev dependecies optional
+3. npm i --save-dev ts-node
+4. npm i --save-dev typescript
+in package.json 
+inside script 
+"test": "mocha --require ts-node/register --watch-extensions ts 'test/**/*.ts'",
+
+
+in terminal need to run the command
+
+npm test -- -w
+
+------------jest
+1. npm install --save-dev jest
+2. npm i --save-dev ts-jest 
+3. npm i --save-dev @types/jest
+4. in package.json
+"scripts": {
+    "test": "jest"
+  }
+
+5. npm i -g jest
+6. create config file -- must
+jest.config.ts or .js file because it coverts into json at the end.
+-------------
+// jest.config.ts
+import type {Config} from '@jest/types';
+
+// Sync object
+const config: Config.InitialOptions = {
+  verbose: true,
+  preset: 'ts-jest'
+};
+export default config;
+-----------
+  keep put ur test file inside 
+  "__tests__" name folder.
+
+  ------------ fro express
+  npm i -save-dev  express with expres create server
+  npm i --save-dev @types/express
