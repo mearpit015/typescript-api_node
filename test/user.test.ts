@@ -1,9 +1,9 @@
 import { users } from '../coustomModule/models/users'
 import { utils } from "../coustomModule/controller/utils";
-import * as userService from '../coustomModule/services/userService'
+import * as userService from '../services/userService'
 
 
-jest.mock('../coustomModule/services/userService');
+jest.mock('../services/userService');
 const usermodule = userService as jest.Mocked<typeof userService>;
 
 describe('user controller', () => {

@@ -2,7 +2,7 @@ import { use } from "chai";
 import { IncomingMessage, ServerResponse } from "http";
 import { json } from "stream/consumers";
 import { users } from '../models/users'
-import { registerUser, getAllUser } from '../services/userService'
+import { registerUser, getAllUser } from '../../services/userService'
 
 export class User {
     constructor() {
