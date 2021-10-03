@@ -1,0 +1,32 @@
+
+{
+    "checklistItems": [
+        {
+            "id": "i1",
+            "checklistItemFields": [
+                {
+                    "id": "a1",
+                    "value" : "someVal1"
+                },
+                {
+                    "id": "a2",
+                    "value" : "someVal2"
+                  }
+            ]
+        },
+        {
+            "id": "i2",
+            "checklistItemFields": [
+                {
+                    "id": "a1",
+                    "value" : "someVal1"
+                },
+                {
+                    "id": "a2",
+                    "value" : "someVal2"
+                  }
+            ]
+        }
+ 
+    ]
+}

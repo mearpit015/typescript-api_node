@@ -5,6 +5,7 @@ import { apiRouter } from './router/apiRouter';
 import querystring from 'querystring'
 import express from 'express';
 import { User } from './coustomModule/controller/user';
+import { modifyBlobTemplete } from './coustomModule/controller/ReadJson';
 
 
 const hostname: string = '127.0.0.1';
@@ -18,19 +19,27 @@ app.use(express.json());
 // For parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+
 app.post('/registeruser', function(req, res){
     
     var result = userController().addUser(req.body);
     console.dir(req.body);
+    res.setHeader('Content-Type', 'application/json');
     res.send(`${JSON.stringify(result)} sucessfully added!`);
 }); 
 
 app.get('/getAllUser', function(req, res){
-    
+    res.setHeader('Content-Type', 'application/json');
     var result = userController().getUsers();
     console.dir(req.body);
     res.send(`${JSON.stringify(result)}`);
 }); 
+
+app.get('/getTemplate', (req, res) =>{
+    res.setHeader('Content-Type', 'application/json');
+res.send(`${modifyBlobTemplete()}`);
+
+})
 
 ///controller instance create
 function userController() {

@@ -1,0 +1,103 @@
+{
+    "checkListId": "ProviderExternalInvestigativeResearch",
+    "status": "",
+    "title": "Perform Investigative Research",
+    "description": "Research the case and document findings.",
+    "templateId": "PEIRTemplate",
+    "version": "1",
+    "checklistItems": [
+        {
+            "id": "i1",
+            "title": "CMS Open Payments Database",
+            "description": "Lorem ipsum dolor site amet,...",
+            "checklistItemFields": [
+                {
+                    "id": "a1",
+                    "description": "Notes",
+                    "type": "Text",
+                    "required": true,
+                    "displayOrder": 1
+                    
+                },
+                {
+                    "id": "a2",
+                    "description": "Date Completed",
+                    "type": "Date",
+                    "required": true,
+                    "displayOrder": 2
+                    
+                },
+                {
+                    "id": "a3",
+                    "description": "Date Completed",
+                    "type": "Date",
+                    "required": true,
+                    "displayOrder": 2
+                    
+                }
+            ]
+        },
+        {
+            "id": "i2",
+            "title": "CMS Open Payments Database",
+            "description": "Lorem ipsum dolor site amet,...",
+            "checklistItemFields": [
+                {
+                    "id": "a1",
+                    "description": "Notes",
+                    "type": "Text",
+                    "required": true,
+                    "displayOrder": 1
+                    
+                },
+                {
+                    "id": "a2",
+                    "description": "Date Completed",
+                    "type": "Date",
+                    "required": true,
+                    "displayOrder": 2
+                    
+                },
+                {
+                    "id": "a3",
+                    "description": "Date Completed",
+                    "type": "Date",
+                    "required": true,
+                    "displayOrder": 2
+                    
+                }
+            ]
+        },
+        {
+            "id": "i3",
+            "title": "CMS Open Payments Database",
+            "description": "Lorem ipsum dolor site amet,...",
+            "checklistItemFields": [
+                {
+                    "id": "a1",
+                    "description": "Notes",
+                    "type": "Text",
+                    "required": true,
+                    "displayOrder": 1
+                    
+                },
+                {
+                    "id": "a2",
+                    "description": "Date Completed",
+                    "type": "Date",
+                    "required": true,
+                    "displayOrder": 2
+                    
+                },
+                {
+                    "id": "a3",
+                    "description": "Date Completed",
+                    "type": "Date",
+                    "required": true,
+                    "displayOrder": 2
+                    
+                }
+            ]
+        }
+    ]
+}
