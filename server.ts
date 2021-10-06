@@ -5,7 +5,7 @@ import { apiRouter } from './router/apiRouter';
 import querystring from 'querystring'
 import express from 'express';
 import { User } from './coustomModule/controller/user';
-import { modifyBlobTemplete } from './coustomModule/controller/ReadJson';
+import { modifyBlobTemplete, dummyAsyncImplementation, getfromAxios } from './coustomModule/controller/ReadJson';
 
 
 const hostname: string = '127.0.0.1';
@@ -15,30 +15,42 @@ var app = express();
 
 // For parsing application/json
 app.use(express.json());
-  
+
 // For parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
 
-app.post('/registeruser', function(req, res){
-    
+app.post('/registeruser', function (req, res) {
+
     var result = userController().addUser(req.body);
     console.dir(req.body);
     res.setHeader('Content-Type', 'application/json');
     res.send(`${JSON.stringify(result)} sucessfully added!`);
-}); 
+});
 
-app.get('/getAllUser', function(req, res){
+app.get('/getAllUser', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     var result = userController().getUsers();
     console.dir(req.body);
     res.send(`${JSON.stringify(result)}`);
-}); 
+});
 
-app.get('/getTemplate', (req, res) =>{
+app.get('/getTemplate', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-res.send(`${modifyBlobTemplete()}`);
+    res.send(`${modifyBlobTemplete()}`);
 
+})
+
+
+app.get('/getdummy', async (req, res) => {
+
+    res.send(`${await dummyAsyncImplementation()}`)
+
+});
+
+app.get('/usingaxios', async (req, res) => {
+    
+    res.send(`~${await getfromAxios()}`)
 })
 
 ///controller instance create
@@ -49,12 +61,14 @@ function userController() {
 app.listen(port);
 
 
+
+
 // const server: Server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
 //     res.statusCode = 200;
 //     res.setHeader('Content-Type', 'application/json');
 
 //     apiRouter.mapRouts(req, res); //routing optimized.
-    
+
 //     // let url: string | undefined = req.url;
 //     // let method: string | undefined = req.method;
 //     // let result : string = "";

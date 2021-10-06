@@ -11,8 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@akanass/rx-http-request": "^3.3.0",
     "@types/node": "^16.10.2",
-    "axios": "^0.22.0"
+    "axios": "^0.22.0",
+    "rxjs": "^7.3.1"
   },
   "devDependencies": {
     "@types/chai": "^4.2.22",

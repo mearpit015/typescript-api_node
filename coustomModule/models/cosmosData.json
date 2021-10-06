@@ -6,11 +6,11 @@
             "checklistItemFields": [
                 {
                     "id": "a1",
-                    "value" : "someVal1"
+                    "value" : "i1a1"
                 },
                 {
                     "id": "a2",
-                    "value" : "someVal2"
+                    "value" : "i1a2"
                   }
             ]
         },
@@ -19,11 +19,24 @@
             "checklistItemFields": [
                 {
                     "id": "a1",
-                    "value" : "someVal1"
+                    "value" : "12a1"
                 },
                 {
                     "id": "a2",
-                    "value" : "someVal2"
+                    "value" : "i2a2"
+                }
+            ]
+        },
+        {
+            "id": "i3",
+            "checklistItemFields": [
+                {
+                    "id": "a1",
+                    "value" : "i3a1"
+                },
+                {
+                    "id": "a12",
+                    "value" : "i3a2"
                   }
             ]
         }

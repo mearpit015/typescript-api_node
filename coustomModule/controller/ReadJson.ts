@@ -1,6 +1,34 @@
-import { json } from 'stream/consumers';
 import * as bTemplate from '../models/blobTemplate.json'
 import * as cosmosDb from '../models/cosmosData.json'
+import axios from 'axios'
+
+import { RxHR } from '@akanass/rx-http-request';
+import { map } from 'rxjs/operators';
+import { async, Observable } from 'rxjs';
+import { resolve } from 'path/posix';
+import { response } from 'express';
+
+export interface Pokedex {
+    page: number;
+    per_page: number;
+    total: number;
+    total_pages: number;
+    data: Datum[];
+    support: Support;
+}
+
+export interface Datum {
+    id: number;
+    name: string;
+    year: number;
+    color: string;
+    pantone_value: string;
+}
+
+export interface Support {
+    url: string;
+    text: string;
+}
 
 
 export interface blobTemp {
@@ -44,39 +72,32 @@ export const modifyBlobTemplete = () => {
     });
 
     const matchedListItemsIds = getValidateListItems(listItemsId);
-    /* id and feilds are availabel... need to match feilds */
-    var filterTemplate: blobTemp = bTemplate;
+    var filterTemplate: blobTemp = {
+        checkListId: bTemplate.checkListId,
+        status: bTemplate.status,
+        title: bTemplate.title,
+        description: bTemplate.description,
+        templateId: bTemplate.templateId,
+        version: bTemplate.version,
+        checklistItems: []
+    };
 
-    let resObj: any = {};
-    let chkItem: Array<ChecklistItem> = [];
     for (let i = 0; i < matchedListItemsIds.length; i++) {
 
         var itemId = matchedListItemsIds[i].id;
         var items = bTemplate.checklistItems.filter(x => x.id == itemId);
-        chkItem.push(items[0]);
 
-        for (let index = 0; index < chkItem.length; index++) {
-            for (let j = 0; j < chkItem[index].checklistItemFields.length; j++) {
-                chkItem[index].checklistItemFields[j].value = 
-                getAppendItemsFields(chkItem[index].checklistItemFields[j].id, itemId).value;
+        if (items.length > 0) {
+            filterTemplate.checklistItems.push(items[0])
+
+            for (let j = 0; j < filterTemplate.checklistItems[i].checklistItemFields.length; j++) {
+                filterTemplate.checklistItems[i].checklistItemFields[j].value =
+                    getAppendItemsFields(filterTemplate.checklistItems[i].checklistItemFields[j].id, itemId).value;
             }
-
         }
-
     }
 
-    resObj.version = bTemplate.version;
-    resObj.status = bTemplate.status;
-    resObj.templateId = bTemplate.templateId;
-    resObj.description = bTemplate.description;
-    resObj.title = bTemplate.title;
-    resObj.checkListId = bTemplate.checkListId
-    resObj.checklistItems = chkItem;
-
-    console.log(matchedListItemsIds);
-    console.log(listItemsId);
-    return JSON.stringify(resObj);
-
+    return JSON.stringify(filterTemplate);
 }
 
 const getValidateListItems = (listItemIds: string[]) => {
@@ -101,9 +122,39 @@ const getAppendItemsFields = (fid: string, itemId: string) => {
                 ItemFieldsModel = result[i];
 
             }
-
-
         });
 
     return ItemFieldsModel;
 }
+
+export const dummyAsyncImplementation = async () => {
+
+    let value: Pokedex;
+    value = await fectchJsonAsync();
+    return JSON.stringify(value);
+}
+
+const api = 'https://reqres.in/api/user'
+const fectchJsonAsync = async (): Promise<Pokedex> => {
+    
+    const response = RxHR.get<Pokedex>(`${api}`, { json: true });
+    return new Promise((resolve, reject) => {
+        response.subscribe((data) => {
+            resolve(data.body);
+        });
+    })
+
+    
+   
+}
+
+export const getfromAxios= async () => {
+   let val =  await axioget();
+   return JSON.stringify(val.data);
+}
+
+
+async function axioget() : Promise<Pokedex> {
+    let result: Pokedex = await axios.get(`${api}`);
+    return result;
+} 
